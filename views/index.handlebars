@@ -6,11 +6,19 @@
                 <span class="card-title">Eat the Burger</span>
             </div>
             <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+          {{#each burgers}}
+			    {{#unless this.eaten}}
+			      <li>
+			      	{{this.id}}
+                      {{this.name}}
+			     <form action="/{{this.id}}?_method=PUT" method="POST">
+			          <input type="hidden" name="eaten" value="true">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">cloud</i>
+                    <i class="material-icons right">fastfood</i>
                 </button>
+                </li>
+                    {{/unless}}
+                {{/each}}
             </div>
 
         </div>
@@ -22,12 +30,11 @@
                 <span class="card-title">Add the Burger</span>
             </div>
             <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                <label for="textarea">Text Area</label>
-                <textarea id="textarea"></textarea>
+            <input placeholder = "BURGER" id = "addBurger"
+                     type = "text"/>
+                  <label for = "addBurger">Add burger to eat later</label>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">cloud</i>
+                    <i class="material-icons right">fastfood</i>
                 </button>
             </div>
         </div>
@@ -39,8 +46,14 @@
                 <span class="card-title">Burger Graveyard</span>
             </div>
             <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+               {{#each burgers}}
+               {{#if this.eaten}}
+                <li>
+               {{this.id}}
+               {{this.name}}
+               </li>
+               {{/if}}
+               {{/each}}
             </div>
         </div>
     </div>
