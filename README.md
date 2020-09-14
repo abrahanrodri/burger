@@ -13,7 +13,7 @@ Eat Da Burger is deployed on Heroku. Please check it out here.
 Install
 Some basic Git commands are:
 
-$ git clone https://github.com/mohamedsamara/eat-da-burger.git
+$ git clone https://github.com/abrahanrodri/burger.git
 $ cd project
 $ npm install
 Start
